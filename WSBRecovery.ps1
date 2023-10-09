@@ -1,4 +1,4 @@
-$StartTime = (Get-Date).AddHours(-12)
+$StartTime = (Get-Date).AddHours(-18)
 $EndTime = Get-Date
 $LogName = 'Microsoft-Windows-Backup'
 $EventID = 5
@@ -15,8 +15,8 @@ If ($Events.Count -ge 1) {
     Write-Output "Backup failed with EFI lock error"
 	$CurrentBackupJob = Get-WBJob -ErrorAction SilentlyContinue
 
-	If ($null -eq $CurrentBackupJob) {
-		Start-WBBackup -Policy Get-WBPolicy -Async
+	If ($CurrentBackupJob.JobState -eq 'Unknown') {
+		Start-WBBackup -Policy (Get-WBPolicy) -Async
 		Write-Output "No backup was running. A new backup has been started."
 	} 	
 	Else {

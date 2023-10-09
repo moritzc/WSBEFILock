@@ -24,8 +24,8 @@ If ($Events.Count -ge 1) {
     
     $CurrentBackupJob = Get-WBJob -ErrorAction SilentlyContinue
 
-    If ($null -eq $CurrentBackupJob) {
-        Start-WBBackup -Policy Get-WBPolicy -Async
+    If ($CurrentBackupJob.JobState -eq 'Unknown') {
+        Start-WBBackup -Policy (Get-WBPolicy) -Async
         $Message = "No backup was running. A new backup has been started."
         WriteLog $Message
     }     
