@@ -1,5 +1,5 @@
 # WSBEFILock
-Hopefully mitigates the pesky EFI Lock error 0x8078011E that is plagueing Windows Server 2022 where the Backup just fails with the error
+Hopefully mitigates the pesky EFI Lock error 0x8078011E that is plaguing Windows Server 2022 where the Backup just fails with the error
 
   `The backup operation that started at 'XXXX' has failed with following error code '0x8078011E' (Windows Backup failed to get an exclusive lock on the EFI system partition (ESP). This may happen if another application is using files on the ESP. Please retry the operation.). Please review the event details for a solution, and then rerun the backup operation once the issue is resolved. `
 
